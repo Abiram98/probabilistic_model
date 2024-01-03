@@ -1,0 +1,13 @@
+services:
+  notebook:
+    build: .
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./notebooks:/all/notebooks
+    command: jupyter notebook --allow-root --ip 0.0.0.0
+    deploy:
+       resources:
+           limits:
+             cpus: "1"
+             memory: 4G 
